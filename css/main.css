@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f0f0f5;
+}
+
+
+#page-home{
+    background-image: url('../assets/home-background.svg') no-repeat;
+    height: 100vh;
+    background-position: 35vw bottom;
+}
+.content{
+    content: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#page-home header a span {
+    background-image: url('../assets/log-in.svg');
+}
