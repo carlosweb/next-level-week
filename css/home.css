@@ -1,0 +1,73 @@
+#page-home{
+    background: url('../assets/home-background.svg') no-repeat;
+    height: 100vh;
+    background-position: 35vw bottom;
+}
+.content{
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+#page-home header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#page-home header a {
+    display: flex;
+    color: var(--title-color);
+    font-weight: 600;
+}
+
+#page-home header a span {
+    background-image: url('../assets/log-in.svg');
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+#page-home main {
+    max-width: 560px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#page-home main h1 {
+   color: var(--title-color);
+   font-size: 3rem;
+}
+
+#page-home main p {
+    font-size: 1.5rem;
+    line-height: 38px;
+    margin-top: 25px;
+ }
+
+ #page-home main p {
+    font-size: 1.5rem;
+    line-height: 38px;
+    margin-top: 25px;
+ }
+
+ #page-home main a {
+    width: 100%;
+    max-width: 360px;
+    background-color:var(--primary-color);
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 500ms;
+    text-decoration: none;
+    font-weight: 600;
+    color: #f0f0f5;
+ }
