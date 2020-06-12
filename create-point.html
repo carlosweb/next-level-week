@@ -47,15 +47,17 @@
 
                         <div class="field">
                             <label for="state">Estado</label>
-                            <select name="state" id="">
+                            <select name="uf" id="">
                                 <option value="">Selecione o Estado</option>
                             </select>
+                            
                         </div>
                         <div class="field">
-                            <label for="city">Cidade</label>
-                            <select name="" id="" disabled>
-                                <option value="">Selecione o Estado</option>
+                            <label for="">Cidade</label>
+                            <select name="city" id="" disabled>
+                                <option value="">Selecione a Cidade</option>
                             </select>
+                            <input type="hidden" name="state">
                         </div>
 
                     </div>
@@ -72,7 +74,7 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="./scripts/create-point.js"></script>
 </body>
 
 </html>
