@@ -42,12 +42,35 @@ document
 
 //items de coletas
 const itemsToCollect = document.querySelectorAll('.items-grid li')
-itemsToCollect.forEach((item) => {
+itemsToCollect.forEach(item => {
     item.addEventListener("click", handleSelectedItem)
 })
 
+const collectedItems = document.querySelector('input[name=items]')
+let selectedItems = []
+
 function handleSelectedItem(event) {
     const itemLi = event.target
+
     itemLi.classList.toggle("selected")
     const itemId = event.target.dataset.id
+
+    const alreadySelected = selectedItems.findIndex(item => {
+        return item === itemId
+    })
+
+    //verificação do seleçao
+    if(alreadySelected >= 0) {
+        const filredItems= selectedItems.filter (item => {
+            const itemDifferent = item != itemId
+            return itemDifferent
+        })
+        selectedItems = filredItems
+    }else {// adicionado na seleção
+        selectedItems.push(itemId)
+    }
+
+    //atualizar 
+    collectedItems.value = selectedItems
 }
+
