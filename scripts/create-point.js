@@ -23,13 +23,15 @@ function getCiteis(event) {
 
     const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios
     `
+    citySelect.innerHTML = "" 
+    citySelect.disabled = true
+
     fetch(url)
     .then( (res) => res.json() )
     .then( cities => {
         for(city of cities){
-            citySelect.innerHTML += `<option value="${city.id}">${city.nome} </option>`
+            citySelect.innerHTML += `<option value="${city.nome}">${city.nome} </option>`
         }
-
         citySelect.disabled = false
     })
 }
@@ -38,4 +40,14 @@ document
     .querySelector('select[name=uf]')
     .addEventListener('change', getCiteis)
 
+//items de coletas
+const itemsToCollect = document.querySelectorAll('.items-grid li')
+itemsToCollect.forEach((item) => {
+    item.addEventListener("click", handleSelectedItem)
+})
 
+function handleSelectedItem(event) {
+    const itemLi = event.target
+    itemLi.classList.toggle("selected")
+    const itemId = event.target.dataset.id
+}
