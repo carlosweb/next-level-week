@@ -1,51 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Ecoleta - Resultado da Pesquisa</title>
-    <link rel="stylesheet" href="./css/main.css">
+{% set pageId = "page-results" %}
+
+{% block title %}
+    <title>
+        Ecoleta - Resultado da Pesquisa</title>
+{% endblock title %}
+
+{% block styles %}
     <link rel="stylesheet" href="./css/search-results.css">
-    <link rel="stylesheet" href="./css/responsive.css">
-</head>
+{% endblock styles %}
 
-<body>
-    <div id="page-results">
-        <div class="content">
-            {% include "partials/page-header.html" %}
+<div id="page-results">
 
-            <main>
-                <h3><strong>2 pontos</strong> encontrados</h3>
-                <div class="cards">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1565886728041-a239b6a3ec42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
-                            alt="">
-                        <h1>Coletoria</h1>
-                        <h3>Residuos eletronicos, Lâmpadas</h3>
-                        <p>Rio do Sul, santa Catarina <br />
-                            numero 206
-                        </p>
-                    </div>
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1101&q=80"
-                            alt="">
-                        <h1>Paper Side</h1>
-                        <h3>Papeis e Papelão</h3>
-                        <p>Rio do Sul, santa Catarina <br />
-                            numero 206
-                        </p>
-                    </div>
+    {% block content %}
+        {% include "partials/page-header.html" %}
+        <main>
+            <h3>
+                <strong>2 pontos</strong>
+                encontrados</h3>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1565886728041-a239b6a3ec42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" alt="">
+                    <h1>Coletoria</h1>
+                    <h3>Residuos eletronicos, Lâmpadas</h3>
+                    <p>Rio do Sul, santa Catarina
+                        <br/>
+                        numero 206
+                    </p>
                 </div>
-            </main>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1101&q=80" alt="">
+                    <h1>Paper Side</h1>
+                    <h3>Papeis e Papelão</h3>
+                    <p>Rio do Sul, santa Catarina
+                        <br/>
+                        numero 206
+                    </p>
+                </div>
+            </div>
+        </main>
+    {% endblock content %}
 
-
-
-        </div>
-    </div>
-
-    <script src="./scripts/create-point.js"></script>
 </body>
 
 </html>

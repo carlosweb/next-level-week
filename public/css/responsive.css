@@ -4,7 +4,6 @@
      }
 }
 
-
 @media (max-width: 900px) {
     #page-home {
        background-position: 70vw;
@@ -32,7 +31,13 @@
     #page-results .cards img {
         height: 200px;
     }
-    
+    #page-create-point .field-group {
+        flex-direction: column;
+    }
+
+    #page-create-point .field-group .field + .field{
+        margin-left: 0;
+    }
  }
 
 
