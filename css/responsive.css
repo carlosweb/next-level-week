@@ -25,6 +25,13 @@
     #page-home main {
         align-items: center;
     }
+
+    #page-results .cards {
+        grid-template-columns: 1fr;
+    }
+    #page-results .cards img {
+        height: 200px;
+    }
     
  }
 
