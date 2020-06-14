@@ -25,6 +25,5 @@ server.get("/search-results", (req, res) => {
     return res.render("search-results.html")
  })
 
-
 // start server
 server.listen(3000) 
