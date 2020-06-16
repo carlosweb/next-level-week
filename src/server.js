@@ -2,6 +2,9 @@
 const express = require("express")
 const server = express()
 
+// get db
+const db = require(".database/db.js")
+
 // how to show files
 server.use(express.static("public"))
 
