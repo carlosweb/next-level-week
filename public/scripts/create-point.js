@@ -1,77 +1,104 @@
+function populateUFs() {
+    const ufSelect = document.querySelector("select[name=uf]")
 
-const populateUfs = function() {
-    const ufSelect = document.querySelector('select[name=uf]')
-
-    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-    .then( (res) => res.json() )
+    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+    .then( res => res.json() )
     .then( states => {
-        for(state of states){
-            ufSelect.innerHTML += `<option value="${state.id}">${state.nome} </option>`
-        }
-    }) 
-}
-populateUfs()
 
-function getCiteis(event) {
-    const citySelect = document.querySelector('[name=city]')
-    const stateInput = document.querySelector('[name=state]')
+        for( const state of states ) {
+            ufSelect.innerHTML += `<option value="${state.id}">${state.nome}</option>`
+        }
+
+    })
+}
+
+populateUFs()
+
+
+function getCities(event) {
+    const citySelect = document.querySelector("[name=city]")
+    const stateInput = document.querySelector("[name=state]")
 
     const ufValue = event.target.value
 
     const indexOfSelectedState = event.target.selectedIndex
     stateInput.value = event.target.options[indexOfSelectedState].text
 
-    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios
-    `
-    citySelect.innerHTML = "" 
+
+    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
+
+
+    citySelect.innerHTML = "<option value>Selecione a Cidade</option>"
     citySelect.disabled = true
 
     fetch(url)
-    .then( (res) => res.json() )
+    .then( res => res.json() )
     .then( cities => {
-        for(city of cities){
-            citySelect.innerHTML += `<option value="${city.nome}">${city.nome} </option>`
+        
+
+        for( const city of cities ) {
+            citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
         }
+
         citySelect.disabled = false
-    })
+    } )
 }
 
+
 document
-    .querySelector('select[name=uf]')
-    .addEventListener('change', getCiteis)
+    .querySelector("select[name=uf]")
+    .addEventListener("change", getCities)
 
-//items de coletas
-const itemsToCollect = document.querySelectorAll('.items-grid li')
-itemsToCollect.forEach(item => {
+
+// Itens de coleta
+// pegar todos os li`s
+const itemsToCollect = document.querySelectorAll(".items-grid li")
+
+for (const item of itemsToCollect) {
     item.addEventListener("click", handleSelectedItem)
-})
+}
 
-const collectedItems = document.querySelector('input[name=items]')
+
+const collectedItems = document.querySelector("input[name=items]")
+
 let selectedItems = []
 
 function handleSelectedItem(event) {
     const itemLi = event.target
 
+    // adicionar ou remover uma classe com javascript
     itemLi.classList.toggle("selected")
-    const itemId = event.target.dataset.id
     
+    const itemId = itemLi.dataset.id
 
-    const alreadySelected = selectedItems.findIndex(item => {
-        return item === itemId
+    console.log('ITEM ID: ', itemId)
+
+    // verificar se existem itens selecionados, se sim
+    // pegar os itens selecionados
+
+    const alreadySelected = selectedItems.findIndex( item => {
+        const itemFound = item == itemId // isso será true ou false
+        return itemFound
     })
 
-    //verificação do seleçao
-    if(alreadySelected >= 0) {
-        const filredItems= selectedItems.filter (item => {
-            const itemDifferent = item != itemId
-            return itemDifferent
+    // se já estiver selecionado, 
+    if( alreadySelected >= 0 ) {
+        // tirar da selecao
+        const filteredItems = selectedItems.filter( item => {
+            const itemIsDifferent = item != itemId // false
+            return itemIsDifferent
         })
-        selectedItems = filredItems
-    }else {// adicionado na seleção
+
+        selectedItems = filteredItems
+    } else {
+        // se não estiver selecionado
+        // adicionar à seleção
         selectedItems.push(itemId)
     }
 
-    //atualizar 
-    collectedItems.value = selectedItems
-}
+    console.log('selectedItems: ', selectedItems)
 
+    // atualizar o campo escondido com os itens selecionados
+    collectedItems.value = selectedItems
+
+}

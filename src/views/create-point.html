@@ -99,14 +99,13 @@
             <input type="hidden" name="items">
         </fieldset>
 
-        <button type="submit">
-            Cadastrar Ponto de Coleta</button>
+        <button type="submit"> Cadastrar Ponto de Coleta</button>
     </form>
 {% endblock content %}
 
 {% block modal %}
     {% if saved %}
-        {% include partials/point-created.html %}}
+        {% include "partials/point-created.html" %}}
     {% endif %}
 {% endblock %}
 
