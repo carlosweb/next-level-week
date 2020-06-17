@@ -22,27 +22,27 @@ module.exports = db
 //         );
 //     `)
 //     // insert data on table
-//     const query = `
-//     INSERT INTO places (
-//         image,
-//         name,
-//         address,
-//         address2,
-//         state,
-//         city,
-//         items
+    // const query = `
+    // INSERT INTO places (
+    //     image,
+    //     name,
+    //     address,
+    //     address2,
+    //     state,
+    //     city,
+    //     items
 
-//     ) VALUES (?,?,?,?,?,?,?);
-//     `
-//     const values = [
-//         "https://images.unsplash.com/photo-1565886728041-a239b6a3ec42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
-//         "Papersider",
-//         "Guilherme Gemballa, Jardim America",
-//         "Numero 280",
-//         "Salvador",
-//         "Bahia",
-//         "Papeis e Papelão"
-//     ]
+    // ) VALUES (?,?,?,?,?,?,?);
+    // `
+    // const values = [
+    //     "https://images.unsplash.com/photo-1565886728041-a239b6a3ec42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80",
+    //     "Teste Insert",
+    //     "Rua Teste, Jardim America",
+    //     "Numero 280",
+    //     "Salvador",
+    //     "Bahia",
+    //     "Papeis e Papelão"
+    // ]
 
     // function afterInsertData(err) {
     //     if(err) {
@@ -64,10 +64,10 @@ module.exports = db
     // })
 
     // Delete data on table
-    // db.run(`DELETE FROM places WHERE id = ?`, [5], function(err) {
-    //     if(err) {
-    //         return console.log(err)
-    //     }
-    //     console.log("Registro Deletado com Sucesso")
-    // })
+//     db.run(`DELETE FROM places WHERE id = ?`, [5], function(err) {
+//         if(err) {
+//             return console.log(err)
+//         }
+//         console.log("Registro Deletado com Sucesso")
+//     })
 // })
